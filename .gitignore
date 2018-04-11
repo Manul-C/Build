@@ -16,9 +16,5 @@ nytprof.out
 /.build/
 ManulC-Contrib-Build-v*
 
-# Module::Build
-_build/
-Build
-
 !lib/ManulC/Contrib/Build/*
 !lib/ManulC/Contrib/*
