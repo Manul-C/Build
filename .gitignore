@@ -1,4 +1,3 @@
-!Build/
 .last_cover_stats
 /META.yml
 /META.json
@@ -15,21 +14,11 @@ nytprof.out
 
 # Dizt::Zilla
 /.build/
+ManulC-Contrib-Build-v*
 
 # Module::Build
 _build/
 Build
-Build.bat
 
-# Module::Install
-inc/
-
-# ExtUitls::MakeMaker
-/blib/
-/_eumm/
-/*.gz
-/Makefile
-/Makefile.old
-/MANIFEST.bak
-/pm_to_blib
-/*.zip
+!lib/ManulC/Contrib/Build/*
+!lib/ManulC/Contrib/*

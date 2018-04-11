@@ -8,7 +8,7 @@ use File::Spec;
 use Data::Dumper;
 use Hash::Merge;
 
-our $VERSION = '0.001';
+our $VERSION = 'v0.001.001';
 
 sub new {
     my $class   = shift;
@@ -28,11 +28,15 @@ sub new {
 
     my $this = $class->SUPER::new( %$mergedProfile );
 
-    $this->install_base_relpaths( static => 'static' );
-    $this->install_base_relpaths( store  => 'store' );
+    my $base_dir = File::Spec->canonpath( $this->base_dir );
 
-    $this->add_build_element( 'static' );
-    $this->add_build_element( 'store' );
+    foreach my $buildElem ( qw<static store> ) {
+        my $elemDir = File::Spec->catdir( $base_dir, $buildElem );
+        if ( -d $elemDir ) {
+            $this->install_base_relpaths( $buildElem => $buildElem );
+            $this->add_build_element( $buildElem );
+        }
+    }
 
     return $this;
 }
